@@ -3,6 +3,10 @@ This is the evaluation scripts for evaluating in the scoring trials of xDR Chall
 
 This README introduces evaluation indexes evaluated by the evaluation scripts and the requirement for using the scripts. 
 
+Note that the dataset for xDR Challenge 2023 is not included in the repository.
+The dataset is exclusively provided for the registered participants of this competition.
+Please copy all files in the gt, gis folders of the dataset to corresponding folders (gt, gis) in /xDR-Challenge-2023-evaluation/dataset/ for running evaluation with the sample dataset of the xDR Challenge 2023.
+
 | **Name of Index** | **Corresponding indicators** | **Description** |
  ---       | ---                     |---
 | I_ce        | CE (Circular Error)               　 | Checking the absolute positional error between trajectory and ground truth at check points.　         |
