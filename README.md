@@ -10,7 +10,7 @@ Please copy all files in the gt, gis folders of the dataset to corresponding fol
 | **Name of Index** | **Corresponding indicators** | **Description** |
  ---       | ---                     |---
 | I_ce        | CE (Circular Error)               　 | Checking the absolute positional error between trajectory and ground truth at check points.　         |
-| I_ca        | CA_w (Circular Accuracy in the loacl space)        　     | Checking the deviation of the error distribution in local x-y coordinate system |
+| I_ca        | CA_l (Circular Accuracy in the loacl space)        　     | Checking the deviation of the error distribution in local x-y coordinate system |
 | I_eag       | EAG (Error Accumulation Gradient)  | Checking the speed of error accumulation from the correction points      |
 | I_ve        | VE (Velocity Error)                 |Checking the error of velocity compared with correct velocity of ground-truth      |
 | I_obstacle  | Requirement for Obstacle Avoidance | Checking the percentage of points of the trajectory in walkable area|
