@@ -25,7 +25,7 @@ I_ve       | ve < 0.1   | 2.0 < ve  | 100 - (100 * (ve - 0.1))/1.9
 I_obstacle | obs = 1.0  | obs = 0.0 | 100 * obs
 ```
 
-### about Frequency of the evaluation
+### Frequency of the evaluation
 Note that frequency of the evaluation depends on the frequency of the ground-truth data.
 The frequency of the ground-truth data for xDR Challenge 2023 is about 100Hz.
 If the sampling frequency of your estimation is less than 100Hz, your estimation can not be accurately evaluated.
