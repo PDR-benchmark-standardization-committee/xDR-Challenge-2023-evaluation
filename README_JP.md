@@ -1,11 +1,17 @@
 # xDR-Challenge-2023-evaluation
 xDR Challenge 2023コンペティションで使われる指数の計算を行えるツールです。
+
+なおxDR Challenge 2023のサンプルデータは本ツールには含まれておりません。
+コンペティション参加登録済みの方にのみサンプルが公開されております。
+各自でgt, gisデータをそれぞれ/xDR-Challenge-2023-evaluation/dataset/のgt, gisフォルダー下にコピーして使用してください。
+
 以下が、計算可能な指数の概要と、対応する指標と必要条件になります。
+
 
 | **指数** | **対応する指標と必要条件** | **概要** |
  ---       | ---                     |---
 | I_ce        | 誤差絶対量 : CE (Circular Error)               　 | 正解座標と時間的最近傍の軌跡の距離が近いか評価　 　         |
-| I_ca        | 誤差分偏移 : CA (Circular Accuracy)        　     | 地図上のエリアごとの正解座標との誤差の分布を評価 　         |
+| I_ca        | 誤差分偏移 : CA (Circular Accuracy)        　     | 正解座標との誤差偏移をyaw方向をy軸とした相対座標系で評価 　         |
 | I_eag       | 誤差累積速度 : EAG (Error Accumulation Gradient)  | 位置補正のための座標からの誤差の累積スピードを評価          |
 | I_ve        | 速度誤差絶対量 : (Velocity Error)                 | 正解歩行速度と時間的最近傍の軌跡の歩行速度が近いか評価       |
 | I_obstacle  | 軌跡経路基準 : Requirement for Obstacle Avoidance | 地図上の軌跡が人間が侵入できない障害物を通過していないか評価 |
@@ -19,6 +25,12 @@ I_eag      | eag < 0.05 | 2.0 < eag | 100 - (100 * (eag - 0.05))/1.95
 I_ve       | ve < 0.1   | 2.0 < ve  | 100 - (100 * (ve - 0.1))/1.9
 I_obstacle | obs = 1.0  | obs = 0.0 | 100 * obs
 ```
+
+### 評価周波数
+評価周波数は正解データの周波数に依存しており、xDR Challenge 2023で使用する正解データの周波数は100Hzになります。
+推定軌跡周波数が100Hzを下回る場合、正確な評価ができない可能性があります。
+その為、100Hzで軌跡推定を行うか、もしくは100Hzへアップサンプリングすることを推奨しております。
+ただし、速度評価のみ局所的な値変動を抑えるため1Hz分の平滑化後の値を評価しております。
 
 ## 必要条件
 ```
@@ -91,7 +103,7 @@ xDR-Challenge-2023-evaluation/
 ```
 python do_evaluation_XC2023.py -t [estimation_path]
 ```
-デモデータの評価を実行したい場合は、以下のスクリプトを実行してください
+デモデータの評価を実行したい場合は、以下のスクリプトを実行してください。
 ```
 python do_evaluation_XC2023.py -t dataset/traj/
 ```
