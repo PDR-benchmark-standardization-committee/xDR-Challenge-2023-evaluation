@@ -7,10 +7,11 @@ Note that the dataset for xDR Challenge 2023 is not included in the repository.
 The dataset is exclusively provided for the registered participants of this competition.
 Please copy all files in the gt, gis folders of the dataset to corresponding folders (gt, gis) in /xDR-Challenge-2023-evaluation/dataset/ for running evaluation with the sample dataset of the xDR Challenge 2023.
 
+
 | **Name of Index** | **Corresponding indicators** | **Description** |
  ---       | ---                     |---
 | I_ce        | CE (Circular Error)               　 | Checking the absolute positional error between trajectory and ground truth at check points.　         |
-| I_ca        | CA_l (Circular Accuracy in the loacl space)        　     | Checking the deviation of the error distribution in local x-y coordinate system |
+| I_ca        | CA_l (Circular Accuracy in the local space)        　     | Checking the deviation of the error distribution in local x-y coordinate system |
 | I_eag       | EAG (Error Accumulation Gradient)  | Checking the speed of error accumulation from the correction points      |
 | I_ve        | VE (Velocity Error)                 |Checking the error of velocity compared with correct velocity of ground-truth      |
 | I_obstacle  | Requirement for Obstacle Avoidance | Checking the percentage of points of the trajectory in walkable area|
@@ -29,7 +30,8 @@ I_obstacle | obs = 1.0  | obs = 0.0 | 100 * obs
 Note that frequency of the evaluation depends on the frequency of the ground-truth data.
 The frequency of the ground-truth data for xDR Challenge 2023 is about 100Hz.
 If the sampling frequency of your estimation is less than 100Hz, your estimation can not be accurately evaluated.
-We recommend you to estimate trajectories in 100Hz or to up-sample the trajectories to 100Hz. 
+We recommend you to estimate trajectories in 100Hz or to up-sample the trajectories to 100Hz.  
+Only I_ve is evaluated at 1Hz for cancelling peaky high-frequency fluctuation of the velocity.
 
 ## Requirements (Required python version and packages for running the scripts)
 ```
