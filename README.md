@@ -16,6 +16,9 @@ Please copy all files in the gt, gis folders of the dataset to corresponding fol
 | I_ve        | VE (Velocity Error)                 |Checking the error of velocity compared with correct velocity of ground-truth      |
 | I_obstacle  | Requirement for Obstacle Avoidance | Checking the percentage of points of the trajectory in walkable area|
 
+I_ve is evaluated by calculating average of velocity errors in 1sec. time window (+/- 0.5 sec from the evaluation points) compared with GT.  
+This averaging operation is intended to smooth peaky high-frequency fluctuation of the velocity.
+
 ### Formula for evaluating the indexes
 ```
 Index         Max Score(100)    Min Score(0)      formula
@@ -31,7 +34,6 @@ Note that frequency of the evaluation depends on the frequency of the ground-tru
 The frequency of the ground-truth data for xDR Challenge 2023 is about 100Hz.
 If the sampling frequency of your estimation is less than 100Hz, your estimation can not be accurately evaluated.
 We recommend you to estimate trajectories in 100Hz or to up-sample the trajectories to 100Hz.  
-Only I_ve is evaluated at 1Hz for cancelling peaky high-frequency fluctuation of the velocity.
 
 ## Requirements (Required python version and packages for running the scripts)
 ```
