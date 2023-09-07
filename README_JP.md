@@ -11,7 +11,7 @@ xDR Challenge 2023コンペティションで使われる指数の計算を行�
 | **指数** | **対応する指標と必要条件** | **概要** |
  ---       | ---                     |---
 | I_ce        | 誤差絶対量 : CE (Circular Error)               　 | 正解座標と時間的最近傍の軌跡の距離が近いか評価　 　         |
-| I_ca        | 誤差分偏移 : CA (Circular Accuracy)        　     | 正解座標との誤差偏移をyaw方向をy軸とした相対座標系で評価 　         |
+| I_ca        | 誤差分布偏移 : CA (Circular Accuracy)        　   | 正解座標との誤差分布をyaw方向をy軸とした相対座標系で評価 　         |
 | I_eag       | 誤差累積速度 : EAG (Error Accumulation Gradient)  | 位置補正のための座標からの誤差の累積スピードを評価          |
 | I_ve        | 速度誤差絶対量 : (Velocity Error)                 | 正解歩行速度と時間的最近傍の軌跡の歩行速度が近いか評価       |
 | I_obstacle  | 軌跡経路基準 : Requirement for Obstacle Avoidance | 地図上の軌跡が人間が侵入できない障害物を通過していないか評価 |
