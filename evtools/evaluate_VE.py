@@ -21,7 +21,7 @@ def main(df_est, valid_vel = 1.5, est_timerange = [], df_gt = None, PE_flg = Tru
             frame interval to calculate velocity from x-y
     """
     if df_gt is not None:
-        if PE_flg: VE = calc_velocity_error_Median(df_est, df_gt, est_timerange, window_time)
+        if PE_flg: VE = calc_velocity_error_Median(df_est, df_gt, window_time, est_timerange)
         else: VE = calc_velocity_error_Avg(df_est, df_gt, est_timerange, window_time)
         
     else:
