@@ -29,6 +29,16 @@ I_ve       | ve < 0.1   | 2.0 < ve  | 100 - (100 * (ve - 0.1))/1.9
 I_obstacle | obs = 1.0  | obs = 0.0 | 100 * obs
 ```
 
+### Weights for the indexes
+The winner of the competition is determined by weighted-sum of the indexes. The weights are shown as  follows;
+```
+I_ce = 0.25
+I_ca = 0.20
+I_eag = 0.25
+I_ve = 0.15
+I_obstacle = 0.15
+```
+
 ### Frequency of the evaluation
 Note that frequency of the evaluation depends on the frequency of the ground-truth data.
 The frequency of the ground-truth data for xDR Challenge 2023 is about 100Hz.
@@ -133,17 +143,5 @@ python do_evaluation_XC2023.py -t [estimation_folder] --output_path new_output_f
 ```
 
 ### 3. Changing the weights for indexes
-If you add "--est_weight" option, you can change index weights to calculate competition score in index_weights.ini
-Default weight of index is below. These weights are used in xDR Challenge 2023.
-```
-I_ce = 0.25
-I_ca = 0.20
-I_eag = 0.25
-I_ve = 0.15
-I_obstacle = 0.15
-```
-The weights can be defined by command line arguments.
-The indexes are ordered as I_ce, I_ca, I_eag, I_ve, I_obstacle and space separated.
-```
-python do_evaluation_XC2023.py -t [estimation_folder] --est_weight 0.25 0.2 0.25 0.15 0.15
-```
+If you add "--est_weight" option, you can change index weights to calculate competition score in index_weights.ini Default weights of indexes are
+the weights used for the competition.
