@@ -136,12 +136,21 @@ def main_cl(args):
     """
     fetch comand line arguments
     """
-    if args.traj_dir[-1] != os.sep: args.traj_dir += os.sep
-    if args.gt_path[-1] != os.sep: args.gt_path += os.sep
-    if args.gis_path[-1] != os.sep: args.gis_path += os.sep
+    args.traj_dir = normalize_path_end(args.traj_dir)
+    args.gt_path = normalize_path_end(args.gt_path)
+    args.gis_path = normalize_path_end(args.gis_path)
 
     main(args.traj_dir, args.gt_path, args.gis_path, args.est_weight, args.floor,
          args.est_timerange, args.ALIP_timerange, args.draw, args.output_path)
+
+def normalize_path_end(txt):
+    if txt[-1] == os.sep: return txt
+
+    if txt[-1] == '"':
+        txt[-1] = os.sep
+    else:
+        txt += os.sep
+    return txt
 
 
 if __name__ == '__main__':
